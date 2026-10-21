@@ -1,16 +1,16 @@
-# 🧹 zeroprint — clean up your digital footprint with Claude
+# 🧹 zeroprint — clean up your digital footprint with AI
 
 [🇫🇷 Français](README.md) · 🇬🇧 **English**
 
-<p align="center"><img src="https://pix-geeks.com/wp-content/uploads/2026/10/effacer-traces-numeriques-123846-1200x675.jpg.webp" alt="Erase your digital footprint with Claude" width="100%"></p>
+<p align="center"><img src="https://pix-geeks.com/wp-content/uploads/2026/10/effacer-traces-numeriques-123846-1200x675.jpg.webp" alt="Erase your digital footprint with AI" width="100%"></p>
 
 > Shrink the traces you leave online, methodically: inventory, ready-to-send erasure requests, search delisting, data breaches, and follow-up reminders.
 
-This skill turns Claude into a digital clean-up assistant. It starts from what **you** find about yourself online, ranks each trace by sensitivity, drafts the requests that fit your country (GDPR, UK GDPR, CCPA, KVKK) and leaves you with a tracking table of deadlines, reminders and a complaint template.
+This skill turns your AI assistant — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — into a digital clean-up assistant. It starts from what **you** find about yourself online, ranks each trace by sensitivity, drafts the requests that fit your country (GDPR, UK GDPR, CCPA, KVKK) and leaves you with a tracking table of deadlines, reminders and a complaint template.
 
-**Claude sorts, drafts and tracks. It deletes nothing itself.** You send every request, and the recipient is the one who acts on it.
+**The AI sorts, drafts and tracks. It deletes nothing itself.** You send every request, and the recipient is the one who acts on it.
 
-> ℹ️ The skill itself is written in French (instructions, letter templates, legal notes). Claude still works with it in English: ask in English and it answers in English. The letter templates for the UK (UK GDPR) and California (CCPA) are already in English.
+> ℹ️ The skill itself is written in French (instructions, letter templates, legal notes). Any assistant can work with it in English: ask in English and it answers in English. The letter templates for the UK (UK GDPR) and California (CCPA) are already in English.
 
 ---
 
@@ -19,6 +19,7 @@ This skill turns Claude into a digital clean-up assistant. It starts from what *
 - [Why this skill](#why-this-skill)
 - [What it does](#what-it-does)
 - [What it does not do](#what-it-does-not-do)
+- [Compatibility](#compatibility)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Step by step](#step-by-step)
@@ -73,30 +74,54 @@ Results come mostly from follow-up: a broker that never answers, a listing that 
 
 ---
 
+## Compatibility
+
+The skill follows the **[Agent Skills](https://agentskills.io)** format (`SKILL.md` plus `references/` and `assets/` folders), an open standard read natively by many agents. For consumer assistants that do not support the format, its content works as is as instructions.
+
+| Assistant | How to install | Web search | Tracking table |
+|---|---|---|---|
+| **Claude** (claude.ai, apps) | skill uploaded as a `.zip` | ✅ | file or spreadsheet |
+| **Claude Code** | `~/.claude/skills/` folder | ✅ | CSV file |
+| **Codex CLI**, **Gemini CLI**, **Hermes Agent** and other Agent Skills–compatible agents | the agent's skills folder | depends on the agent | CSV file |
+| **ChatGPT** | custom GPT or Project: instructions + files | ✅ | file or table |
+| **Gemini** | Gem: instructions + files | ✅ | table, Sheets export |
+| **Mistral Le Chat**, **Copilot**, local models… | instructions pasted at the start of the chat | depends on the tool | table to copy |
+
+Without web search the skill still works: it points you to the official source to check and marks every deadline "to be verified".
+
+---
+
 ## Installation
 
-### Option 1 — Claude (claude.ai, desktop or mobile app)
+### Agent Skills–compatible agents (Claude, Claude Code, Codex, Gemini CLI, Hermes…)
 
-1. Download this repository (**Code → Download ZIP**), or just the `nettoyage-empreinte-numerique/` folder.
-2. Zip the `nettoyage-empreinte-numerique/` folder: `SKILL.md` must sit at the top of the zipped folder.
-3. In Claude, open the skills settings and upload the `.zip` file.
-4. Turn the skill on.
-
-> Custom skills must be available on your plan. See Claude's help centre (support.claude.com) if the option does not show up.
-
-### Option 2 — Claude Code
+Copy the `nettoyage-empreinte-numerique/` folder into your agent's skills folder:
 
 ```bash
-# Personal skill, available in all your projects
 git clone https://github.com/pxnetwork-fr/zeroprint.git
+
+# Example for Claude Code (skill available in all your projects)
 cp -r zeroprint/nettoyage-empreinte-numerique ~/.claude/skills/
 ```
 
-Or, for a single project, copy the folder into `.claude/skills/` at the project root.
+For other agents (Codex CLI, Gemini CLI, Hermes Agent…), the skills folder location is given in their documentation. On **claude.ai**, zip the folder (with `SKILL.md` at the top) and upload it in the skills settings.
 
-### Option 3 — API / Agent SDK
+### ChatGPT (custom GPT or Project)
 
-Load the folder as a custom skill following Anthropic's documentation (docs.claude.com, "Agent Skills" section).
+1. Create a **custom GPT** (or a **Project**).
+2. Paste the content of `SKILL.md` into the **instructions**, without the header block between `---`.
+3. Add as **knowledge files**: `references/droit-applicable.md`, `references/modeles-courriers.md` and `assets/suivi-demandes.csv`.
+4. Turn on **web search**.
+
+### Gemini (Gem)
+
+1. Create a **Gem**.
+2. Paste the content of `SKILL.md` into the **instructions**, without the header block.
+3. Add the three files from `references/` and `assets/` as **knowledge files**.
+
+### Any other assistant
+
+Paste the content of `SKILL.md` at the very start of the conversation, then attach (or paste after it) `droit-applicable.md` and `modeles-courriers.md`. Then make your request, for example: "I want my address removed from people-search sites."
 
 ---
 
@@ -117,9 +142,9 @@ The skill triggers on its own for requests such as:
 
 > **You:** I want to clean up my digital footprint, my address shows up on people-search sites.
 >
-> **Claude:** To set things up: which country do you live in? Which identifiers should we cover (name and variants, usernames, emails, phone numbers, previous address)? And what's the main goal: less spam, a job search, safety, one specific piece of content?
+> **Assistant:** To set things up: which country do you live in? Which identifiers should we cover (name and variants, usernames, emails, phone numbers, previous address)? And what's the main goal: less spam, a job search, safety, one specific piece of content?
 
-Then you search your name, emails and phone numbers on two search engines, paste the links or screenshots, and Claude builds the inventory.
+Then you search your name, emails and phone numbers on two search engines, paste the links or screenshots, and the assistant builds the inventory.
 
 ---
 
@@ -136,17 +161,17 @@ Then you search your name, emails and phone numbers on two search engines, paste
 ```
 
 ### Step 0 — Scope
-Claude asks, in one go, for your country of residence, the identifiers to cover and your goal. The country sets the applicable law, which the skill **checks against the official source** before writing down any deadline. If you mention a danger (harassment, violence, threats), it starts with protective steps and handles your address and phone number first.
+The assistant asks, in one go, for your country of residence, the identifiers to cover and your goal. The country sets the applicable law, which the skill **checks against the official source** before writing down any deadline. If you mention a danger (harassment, violence, threats), it starts with protective steps and handles your address and phone number first.
 
 ### Step 1 — Inventory
-You run the searches yourself and paste the results. Claude sorts them:
+You run the searches yourself and paste the results. The assistant sorts them:
 
 | category | site | URL | exposed data | sensitivity | action | legal basis |
 |---|---|---|---|---|---|---|
 | data broker | example-directory.com | https://… | address, phone | high | opt-out form | GDPR |
 | old account | old-forum.net | https://… | username, email | medium | account deletion | GDPR |
 
-Claude does not search for you beyond what you provide.
+The assistant does not search for you beyond what you provide.
 
 ### Step 2 — Data brokers
 For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement.
@@ -160,7 +185,7 @@ A search for welcome emails ("confirm your address", "welcome"…) plus justdele
 - If nothing can come down: the "publish better" approach (professional profile, personal page) is presented for what it is: slow, and nothing gets removed.
 
 ### Step 5 — Data breaches
-You check your emails on haveibeenpwned.com. Claude ranks by risk: password to change (especially if reused), 2FA to enable (an authenticator app rather than SMS), account to close.
+You check your emails on haveibeenpwned.com. The assistant ranks by risk: password to change (especially if reused), 2FA to enable (an authenticator app rather than SMS), account to close.
 
 ### Step 6 — Follow-up and reminders
 A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for each request, a reminder drafted in advance, a complaint template for the EU, a reminder to keep proof of every submission, and an offer to redo the inventory every 6 to 12 months.
@@ -199,7 +224,7 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
 ├── README.en.md                       ← this page (English)
 ├── LICENSE
 └── nettoyage-empreinte-numerique/     ← the skill (folder to install)
-    ├── SKILL.md                       ← instructions Claude reads
+    ├── SKILL.md                       ← instructions the assistant reads
     ├── references/
     │   ├── droit-applicable.md        ← legal frameworks, deadlines, exceptions
     │   └── modeles-courriers.md       ← 8 templates (FR, EN, TR)
@@ -275,7 +300,11 @@ This skill provides general information and letter templates. **It is not legal 
 
 ## Author
 
-Created by **Fabien Elharrar** · [fabien.elharrar.com](https://fabien.elharrar.com/) · [@fabienelh](https://github.com/fabienelh)
+**Fabien Elharrar** is an AI and automation consultant. He works with craftspeople and small businesses as well as large companies, helping them improve their processes and productivity with AI.
+
+🌐 [fabien.elharrar.com](https://fabien.elharrar.com/) · 🐙 [@fabienelh](https://github.com/fabienelh)
+
+Got an AI or automation project in your company? Visit [fabien.elharrar.com](https://fabien.elharrar.com/).
 
 ---
 
@@ -285,4 +314,4 @@ Released under the [MIT](LICENSE) license: you are free to use, fork, modify and
 
 ---
 
-<sub>Made by [Fabien Elharrar](https://fabien.elharrar.com/) · A skill for [Claude](https://claude.ai), by Anthropic.</sub>
+<sub>Made by [Fabien Elharrar](https://fabien.elharrar.com/) · A skill in the open Agent Skills format, for any AI assistant.</sub>
