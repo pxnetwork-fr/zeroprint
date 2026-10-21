@@ -1,0 +1,2 @@
+destinataire;catégorie;type de demande;canal;URL concernée;date d'envoi;délai légal (jours);échéance;réponse reçue le;résultat;relance envoyée le;plainte déposée le;statut;preuve
+Exemple Courtier;courtier en données;effacement RGPD art. 17;formulaire;https://exemple.com/fiche;2026-10-20;30;2026-11-19;;;;;envoyée;capture accusé de réception
