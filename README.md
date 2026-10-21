@@ -61,6 +61,10 @@ Le résultat dépend surtout du suivi : un courtier qui ne répond pas, une fich
 - 🔍 **Déréférencement** auprès des moteurs de recherche, distinct de la demande au site d'origine.
 - 🔐 **Fuites de données** : ordre des actions (mot de passe, 2FA, fermeture de compte).
 - 📵 **Stop au spam** : opposition à la prospection (RGPD art. 21), et en France les règles du démarchage téléphonique depuis la fin de Bloctel.
+- 🧾 **Courtiers B2B** (ZoomInfo, Apollo, Lusha, Kaspr, Cognism, RocketReach…) : pages d'opt-out connues, datées, dans `references/courtiers.md`.
+- 🖼️ **Photos et visage** : retrait d'image chez Google, opt-out des moteurs de reconnaissance faciale, StopNCII pour une image intime.
+- 🤖 **IA génératives** : demande de retrait des réponses de ChatGPT, opposition chez Meta AI.
+- 👪 **Cas particuliers** : mineur, personne décédée (clôture des comptes par les héritiers), mandat pour un proche.
 - 📅 **Suivi** : tableau avec échéances calculées, relances rédigées d'avance, modèle de plainte à l'autorité, alertes Google sur vos identifiants, rappel à 6–12 mois.
 
 ## Ce qu'elle ne fait pas
@@ -109,18 +113,18 @@ Pour les autres agents (Codex CLI, Gemini CLI, Hermes Agent…), l'emplacement d
 
 1. Créez un **GPT personnalisé** (ou un **Projet**).
 2. Collez le contenu de `SKILL.md` dans les **instructions**, sans le bloc d'en-tête entre `---`.
-3. Ajoutez en **fichiers de connaissances** : `references/droit-applicable.md`, `references/modeles-courriers.md` et `assets/suivi-demandes.csv`.
+3. Ajoutez en **fichiers de connaissances** : `references/droit-applicable.md`, `references/modeles-courriers.md`, `references/courtiers.md` et `assets/suivi-demandes.csv`.
 4. Activez la **recherche web**.
 
 ### Gemini (Gem)
 
 1. Créez un **Gem**.
 2. Collez le contenu de `SKILL.md` dans les **instructions**, sans le bloc d'en-tête.
-3. Ajoutez les trois fichiers de `references/` et `assets/` comme **fichiers de connaissances**.
+3. Ajoutez les quatre fichiers de `references/` et `assets/` comme **fichiers de connaissances**.
 
 ### Tout autre assistant
 
-Collez le contenu de `SKILL.md` en tout début de conversation, puis joignez (ou collez à la suite) `droit-applicable.md` et `modeles-courriers.md`. Commencez ensuite par votre demande, par exemple : « Je veux retirer mon adresse des sites d'annuaires. »
+Collez le contenu de `SKILL.md` en tout début de conversation, puis joignez (ou collez à la suite) `droit-applicable.md`, `modeles-courriers.md` et `courtiers.md`. Commencez ensuite par votre demande, par exemple : « Je veux retirer mon adresse des sites d'annuaires. »
 
 ---
 
@@ -135,6 +139,8 @@ La skill se déclenche toute seule sur des demandes comme :
 - « Rédige une demande RGPD d'effacement »
 - « Je veux déréférencer un article qui parle de moi »
 - « Est-ce que mon e-mail a fuité ? »
+- « Supprimer les comptes de mon père décédé »
+- « Retirer une photo de mon visage d'un moteur de recherche »
 - « J'ai vu le thread "6 heures avec Claude", on le fait ? »
 
 ### Exemple de premier échange
@@ -150,17 +156,17 @@ Ensuite, vous cherchez votre nom, vos e-mails et vos numéros sur deux moteurs, 
 ## Déroulé détaillé
 
 ```
- 0. Cadrer          pays, identifiants, objectif → droit applicable vérifié
+ 0. Cadrer          pays, identifiants, objectif → droit vérifié, priorités, cas particuliers
  1. Inventaire      vos résultats → tableau trié par sensibilité
  2. Courtiers       formulaire d'opt-out officiel, sinon courrier
  3. Comptes         boîte mail + justdeleteme → suppression définitive
- 4. Pages & moteurs demande au site / déréférencement au moteur
+ 4. Pages & moteurs site, déréférencement, photos, archives, IA génératives
  5. Fuites          haveibeenpwned → mot de passe, 2FA, fermeture
  6. Suivi           échéances, relances, plainte, alertes, rappel 6–12 mois
 ```
 
 ### Étape 0 — Cadrer
-L'assistant demande en une fois votre pays de résidence, les identifiants à couvrir et votre objectif. Le pays fixe le droit applicable, que la skill **vérifie par une recherche sur la source officielle** avant d'écrire le moindre délai. Si vous évoquez un danger (harcèlement, violences, menaces), elle commence par les démarches de protection et traite en priorité l'adresse et le téléphone.
+L'assistant demande en une fois votre pays de résidence, les identifiants à couvrir et votre objectif. Le pays fixe le droit applicable, que la skill **vérifie par une recherche sur la source officielle** avant d'écrire le moindre délai. Si vous évoquez un danger (harcèlement, violences, menaces), elle commence par les démarches de protection et traite en priorité l'adresse et le téléphone. L'objectif fixe l'ordre des étapes (spam → opposition et courtiers B2B ; emploi → anciennes publications ; sécurité → adresse, téléphone, visage). Trois cas particuliers ont leur fondement propre : mineur, personne décédée, mandat pour un proche.
 
 ### Étape 1 — Inventaire
 Vous faites les recherches vous-même et collez les résultats. L'assistant les classe :
@@ -173,7 +179,7 @@ Vous faites les recherches vous-même et collez les résultats. L'assistant les 
 Il vous donne les requêtes à lancer (nom entre guillemets, variantes, e-mails, formats de téléphone, image inversée) et signale l'outil Google « Résultats vous concernant » s'il existe dans votre pays. L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
 
 ### Étape 2 — Courtiers en données
-Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception. Chaque demande inclut une question sur la source des données (RGPD art. 15), pour couper l'alimentation en amont. Pour un résident de Californie, elle oriente d'abord vers le guichet DROP de la CPPA : une seule demande pour tous les courtiers enregistrés dans l'État.
+Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception. Chaque demande inclut une question sur la source des données (RGPD art. 15), pour couper l'alimentation en amont. Pour un résident de Californie, elle oriente d'abord vers le guichet DROP de la CPPA : une seule demande pour tous les courtiers enregistrés dans l'État. Les courtiers B2B, première source du démarchage professionnel, ont leurs pages d'opt-out listées dans `references/courtiers.md`.
 
 ### Étape 3 — Comptes oubliés
 Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »…), consultation de justdeleteme.xyz, applications connectées via Google / Apple / Facebook, entrées du gestionnaire de mots de passe. Pour chaque compte : export préalable si utile, suppression définitive, délai de purge annoncé.
@@ -182,6 +188,9 @@ Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »
 - Contenu sur un site : demande au site, avec l'URL exacte et le motif.
 - Résultat associé à votre nom : demande de déréférencement via les formulaires du moteur.
 - Retrait obtenu : demande de rafraîchissement de la copie du moteur, sinon le résultat traîne des semaines.
+- Photo ou visage : retrait chez le site puis chez Google, opt-out des moteurs de reconnaissance faciale, StopNCII.org pour une image intime.
+- Archives : demande d'exclusion à archive.org, sans garantie.
+- IA génératives : retrait des réponses de ChatGPT via le portail d'OpenAI, opposition chez Meta.
 - Si rien ne peut partir : la stratégie « publier mieux » (profil pro, page perso) est présentée pour ce qu'elle est, lente et sans retrait.
 
 ### Étape 5 — Fuites de données
@@ -215,6 +224,8 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
 | 🇺🇸 Californie | CCPA / CPRA | 45 jours | CPPA, guichet DROP |
 | 🌍 Ailleurs | loi locale / opt-out | variable | autorité locale |
 
+Deux situations hors tableau sont traitées à part : les **mineurs** (RGPD art. 17.1.f, saisine rapide de la CNIL en France) et les **personnes décédées** (loi Informatique et Libertés art. 85, droits des héritiers).
+
 ⚠️ Ces délais sont des **repères datés d'octobre 2026**. La skill les revérifie à la source officielle avant de les écrire dans un courrier. Détail et règles de choix : [`references/droit-applicable.md`](nettoyage-empreinte-numerique/references/droit-applicable.md).
 
 ---
@@ -230,7 +241,8 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
     ├── SKILL.md                       ← instructions lues par l'assistant
     ├── references/
     │   ├── droit-applicable.md        ← cadres juridiques, délais, exceptions
-    │   └── modeles-courriers.md       ← 9 modèles (FR, EN, TR)
+    │   ├── modeles-courriers.md       ← 11 modèles (FR, EN, TR)
+    │   └── courtiers.md               ← pages d'opt-out connues (B2B, annuaires, visage, archives, IA)
     └── assets/
         └── suivi-demandes.csv         ← gabarit du tableau de suivi
 ```
@@ -246,6 +258,8 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
 7. Plainte à l'autorité (CNIL) : pièces à réunir
 8. Déréférencement auprès d'un moteur de recherche
 9. Opposition à la prospection commerciale (RGPD art. 21)
+10. Procuration pour agir au nom d'un tiers
+11. Clôture des comptes d'une personne décédée (France, loi Informatique et Libertés art. 85)
 
 Ce sont des gabarits à adapter, jamais à envoyer tels quels.
 
@@ -260,6 +274,7 @@ La skill applique ces règles avant toute action :
 - **Jamais « ils sont obligés ».** Le droit à l'effacement a des exceptions.
 - **Pas d'avis juridique.** Pour un litige : un avocat ou l'autorité de protection des données.
 - **Minimisation.** Seulement nom, e-mails, téléphones et pays. Pas de pièce d'identité, de mot de passe ni de carte bancaire : les courriers indiquent qu'un justificatif sera fourni sur demande.
+- **Pièce d'identité protégée.** Si un destinataire l'exige, vous l'envoyez vous-même, filigranée (filigrane.beta.gouv.fr en France) et numéro masqué.
 - **Droit vérifié avant d'être écrit.** Délais, formulaires et lois changent.
 
 ---
@@ -268,7 +283,7 @@ La skill applique ces règles avant toute action :
 
 - **Les fiches reviennent.** Les courtiers re-collectent les données publiques ou en rachètent. Comptez une nouvelle passe tous les 6 à 12 mois.
 - **Tout ne s'efface pas.** Registres publics, décisions de justice et articles de presse légitimes restent en ligne.
-- **Les archives.** La Wayback Machine et les caches conservent des copies.
+- **Les archives.** La Wayback Machine et les caches conservent des copies ; on peut demander une exclusion à archive.org, sans garantie.
 - **Les fuites sont définitives.** Une donnée piratée circule ; on limite les dégâts, on ne la récupère pas.
 - **Les courtiers américains** ne relèvent pas de la CCPA pour un résident européen : on passe par leur propre procédure d'opt-out.
 
@@ -281,6 +296,7 @@ La skill applique ces règles avant toute action :
 - Des **réseaux sociaux** réglés en privé : profil non indexé, liste d'amis masquée.
 - En France, le **démarchage téléphonique** commercial est interdit sans consentement préalable depuis le 11 août 2026 (Bloctel a disparu) : ne rien cocher à l'inscription, signaler les appels non sollicités sur SignalConso.
 - Un **numéro secondaire** pour les inscriptions et les petites annonces.
+- Le **fixe en liste rouge** chez l'opérateur (publié par défaut dans l'annuaire, à redemander à chaque changement d'opérateur) et les **coordonnées WHOIS** masquées pour un nom de domaine personnel.
 - Un **gestionnaire de mots de passe** et la 2FA partout où c'est possible.
 
 ---

@@ -167,3 +167,42 @@ Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distin
 [Date]
 
 > En France, depuis le 11 août 2026, le démarchage téléphonique commercial sans consentement préalable est interdit (décret n° 2026-662) et Bloctel a été supprimé : un appel non sollicité se signale sur SignalConso, en plus de ce courrier.
+
+---
+
+## 10. Procuration pour agir au nom d'un tiers
+
+**Objet : Mandat pour l'exercice de mes droits sur mes données personnelles**
+
+Je soussigné(e) [Prénom Nom du mandant], né(e) le [date] à [ville], donne mandat à [Prénom Nom du mandataire], [lien : fils, fille, conseil…], pour exercer en mon nom, auprès de [nom de l'organisme, ou « tout organisme »], mes droits d'accès, d'effacement et d'opposition prévus par le RGPD (articles 15, 17 et 21) et la loi applicable, recevoir les réponses et, le cas échéant, saisir l'autorité de protection des données.
+
+Ce mandat est valable [six mois] à compter de sa date. Les justificatifs d'identité du mandant et du mandataire seront fournis sur demande.
+
+Fait à [ville], le [date]
+
+[Signature du mandant]
+
+> Joindre la procuration signée à chaque courrier envoyé pour le compte du mandant. Pour un mineur ou un majeur protégé, le représentant légal n'a pas besoin de procuration : il joint la preuve de sa qualité (livret de famille, jugement).
+
+---
+
+## 11. Clôture des comptes d'une personne décédée (France)
+
+**Objet : Demande de clôture du compte de [Prénom Nom du défunt], décédé(e) le [date]**
+
+Madame, Monsieur,
+
+[Prénom Nom du défunt], titulaire du compte [identifiant, adresse e-mail ou URL du profil] sur [service], est décédé(e) le [date]. En ma qualité de [héritier, conjoint, personne désignée par ses directives post-mortem], et en application de l'article 85 de la loi n° 78-17 du 6 janvier 1978 (Informatique et Libertés), je vous demande de prendre en compte ce décès et de procéder à la clôture définitive de ce compte, avec effacement des données associées [ou : après remise des éléments suivants : …].
+
+[Si des directives existent : Le défunt a laissé des directives relatives à ses données après son décès, dont copie ci-jointe.]
+
+Je vous remercie de me confirmer la clôture. L'acte de décès et la preuve de ma qualité sont joints, ou seront fournis sur demande.
+
+Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+[Prénom Nom]
+[Lien avec le défunt]
+[Adresse e-mail de contact]
+[Date]
+
+> Vérifier d'abord si le service a une procédure dédiée (Google : compte d'un proche décédé ; Meta : commémoration ou suppression ; Apple : contact légataire) : elle est plus rapide que le courrier. Hors France, le fondement est à chercher dans la loi locale ; sans texte, demander la clôture sur la base des conditions d'utilisation du service.

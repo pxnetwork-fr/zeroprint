@@ -63,6 +63,10 @@ Results come mostly from follow-up: a broker that never answers, a listing that 
 - 🔍 **Delisting** from search engines, kept separate from the request to the source site.
 - 🔐 **Data breaches**: the order of actions (password, 2FA, account closure).
 - 📵 **Stop the spam**: objection to direct marketing (GDPR Art. 21), and for France the cold-calling rules in force since Bloctel was shut down.
+- 🧾 **B2B data brokers** (ZoomInfo, Apollo, Lusha, Kaspr, Cognism, RocketReach…): known opt-out pages, dated, in `references/courtiers.md`.
+- 🖼️ **Photos and face**: image removal from Google, opt-out from face search engines, StopNCII for intimate images.
+- 🤖 **Generative AI**: request to remove your data from ChatGPT answers, objection with Meta AI.
+- 👪 **Special cases**: minors, deceased persons (account closure by heirs), mandate for a relative.
 - 📅 **Follow-up**: a table with computed deadlines, reminders drafted in advance, a complaint template for the regulator, Google Alerts on your identifiers, and a 6–12-month check-up.
 
 ## What it does not do
@@ -111,18 +115,18 @@ For other agents (Codex CLI, Gemini CLI, Hermes Agent…), the skills folder loc
 
 1. Create a **custom GPT** (or a **Project**).
 2. Paste the content of `SKILL.md` into the **instructions**, without the header block between `---`.
-3. Add as **knowledge files**: `references/droit-applicable.md`, `references/modeles-courriers.md` and `assets/suivi-demandes.csv`.
+3. Add as **knowledge files**: `references/droit-applicable.md`, `references/modeles-courriers.md`, `references/courtiers.md` and `assets/suivi-demandes.csv`.
 4. Turn on **web search**.
 
 ### Gemini (Gem)
 
 1. Create a **Gem**.
 2. Paste the content of `SKILL.md` into the **instructions**, without the header block.
-3. Add the three files from `references/` and `assets/` as **knowledge files**.
+3. Add the four files from `references/` and `assets/` as **knowledge files**.
 
 ### Any other assistant
 
-Paste the content of `SKILL.md` at the very start of the conversation, then attach (or paste after it) `droit-applicable.md` and `modeles-courriers.md`. Then make your request, for example: "I want my address removed from people-search sites."
+Paste the content of `SKILL.md` at the very start of the conversation, then attach (or paste after it) `droit-applicable.md`, `modeles-courriers.md` and `courtiers.md`. Then make your request, for example: "I want my address removed from people-search sites."
 
 ---
 
@@ -137,6 +141,8 @@ The skill triggers on its own for requests such as:
 - "Draft a GDPR erasure request"
 - "I want an article about me delisted from Google"
 - "Has my email been in a data breach?"
+- "Delete my late father's accounts"
+- "Get a photo of my face out of a search engine"
 - "I saw the '6 hours with Claude' thread, can we do that?"
 
 ### Sample first exchange
@@ -152,17 +158,17 @@ Then you search your name, emails and phone numbers on two search engines, paste
 ## Step by step
 
 ```
- 0. Scope           country, identifiers, goal → applicable law, verified
+ 0. Scope           country, identifiers, goal → law verified, priorities, special cases
  1. Inventory       your results → table ranked by sensitivity
  2. Data brokers    official opt-out form, otherwise a letter
  3. Accounts        inbox + justdeleteme → permanent deletion
- 4. Pages & engines request to the site / delisting from the engine
+ 4. Pages & engines site, delisting, photos, archives, generative AI
  5. Breaches        haveibeenpwned → password, 2FA, closure
  6. Follow-up       deadlines, reminders, complaint, alerts, 6–12-month check
 ```
 
 ### Step 0 — Scope
-The assistant asks, in one go, for your country of residence, the identifiers to cover and your goal. The country sets the applicable law, which the skill **checks against the official source** before writing down any deadline. If you mention a danger (harassment, violence, threats), it starts with protective steps and handles your address and phone number first.
+The assistant asks, in one go, for your country of residence, the identifiers to cover and your goal. The country sets the applicable law, which the skill **checks against the official source** before writing down any deadline. If you mention a danger (harassment, violence, threats), it starts with protective steps and handles your address and phone number first. The goal sets the order of the steps (spam → objection and B2B brokers; job search → old posts; safety → address, phone, face). Three special cases have their own legal basis: minors, deceased persons, a mandate for a relative.
 
 ### Step 1 — Inventory
 You run the searches yourself and paste the results. The assistant sorts them:
@@ -175,7 +181,7 @@ You run the searches yourself and paste the results. The assistant sorts them:
 It gives you the queries to run (quoted name, variants, emails, phone number formats, reverse image search) and points to Google's "Results about you" tool where it is available in your country. The assistant does not search for you beyond what you provide.
 
 ### Step 2 — Data brokers
-For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement. Each request also asks where the data came from (GDPR Art. 15), to cut the supply upstream. For a California resident, it points first to the CPPA's DROP portal: one request covers every data broker registered in the state.
+For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement. Each request also asks where the data came from (GDPR Art. 15), to cut the supply upstream. For a California resident, it points first to the CPPA's DROP portal: one request covers every data broker registered in the state. B2B brokers, the main source of professional cold outreach, have their opt-out pages listed in `references/courtiers.md`.
 
 ### Step 3 — Forgotten accounts
 A search for welcome emails ("confirm your address", "welcome"…), justdeleteme.xyz, apps connected through Google / Apple / Facebook sign-in, and password manager entries. For each account: export first if useful, permanent deletion, announced purge delay.
@@ -184,6 +190,9 @@ A search for welcome emails ("confirm your address", "welcome"…), justdeleteme
 - Content on a site: request to the site, with the exact URL and the reason.
 - A result tied to your name: delisting request through the engine's forms.
 - Removal obtained: ask the engine to refresh its copy, otherwise the result lingers for weeks.
+- Photo or face: removal from the site then from Google, opt-out from face search engines, StopNCII.org for intimate images.
+- Archives: exclusion request to archive.org, no guarantee.
+- Generative AI: removal from ChatGPT answers through OpenAI's privacy portal, objection with Meta.
 - If nothing can come down: the "publish better" approach (professional profile, personal page) is presented for what it is: slow, and nothing gets removed.
 
 ### Step 5 — Data breaches
@@ -217,6 +226,8 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
 | 🇺🇸 California | CCPA / CPRA | 45 days | CPPA, DROP portal |
 | 🌍 Elsewhere | local law / opt-out | varies | local authority |
 
+Two situations outside the table are handled separately: **minors** (GDPR Art. 17(1)(f), fast-track referral to the CNIL in France) and **deceased persons** (French Data Protection Act Art. 85, heirs' rights).
+
 ⚠️ These deadlines are **benchmarks dated October 2026**. The skill re-checks them against the official source before putting them in a letter. Details and selection rules (in French): [`references/droit-applicable.md`](nettoyage-empreinte-numerique/references/droit-applicable.md).
 
 ---
@@ -232,7 +243,8 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
     ├── SKILL.md                       ← instructions the assistant reads
     ├── references/
     │   ├── droit-applicable.md        ← legal frameworks, deadlines, exceptions
-    │   └── modeles-courriers.md       ← 9 templates (FR, EN, TR)
+    │   ├── modeles-courriers.md       ← 11 templates (FR, EN, TR)
+    │   └── courtiers.md               ← known opt-out pages (B2B, directories, face, archives, AI)
     └── assets/
         └── suivi-demandes.csv         ← tracking table template
 ```
@@ -248,6 +260,8 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
 7. Complaint to the regulator (CNIL): documents to gather
 8. Delisting from a search engine
 9. Objection to direct marketing (GDPR Art. 21), in French
+10. Power of attorney to act on behalf of a third party, in French
+11. Closure of a deceased person's accounts (France, Data Protection Act Art. 85), in French
 
 They are templates to adapt, never to send as is.
 
@@ -262,6 +276,7 @@ The skill applies these rules before doing anything:
 - **Never "they are required to".** The right to erasure has exceptions.
 - **No legal advice.** For a dispute: a lawyer or the data protection authority.
 - **Data minimisation.** Only name, emails, phone numbers and country. No ID document, password or bank card: letters state that proof of identity will be provided on request.
+- **Protected ID document.** If a recipient demands one, you send it yourself, watermarked (filigrane.beta.gouv.fr in France) with the document number masked.
 - **Law checked before it is written.** Deadlines, forms and laws change.
 
 ---
@@ -270,7 +285,7 @@ The skill applies these rules before doing anything:
 
 - **Listings come back.** Brokers re-collect public data or buy it again. Plan a new pass every 6 to 12 months.
 - **Not everything can be erased.** Public registers, court decisions and legitimate press articles stay online.
-- **Archives.** The Wayback Machine and caches keep copies.
+- **Archives.** The Wayback Machine and caches keep copies; you can ask archive.org for an exclusion, with no guarantee.
 - **Breaches are permanent.** Leaked data keeps circulating; you limit the damage, you do not get it back.
 - **US data brokers** do not fall under the CCPA for a European resident: use their own opt-out process.
 
@@ -283,6 +298,7 @@ The skill applies these rules before doing anything:
 - **Social networks** set to private: profile not indexed, friends list hidden.
 - In France, commercial **cold calling** without prior consent has been banned since 11 August 2026 (Bloctel is gone): tick nothing at sign-up, report unsolicited calls on SignalConso.
 - A **secondary phone number** for sign-ups and classified ads.
+- Your **landline unlisted** with your carrier (listed by default in the directory, to be requested again after every carrier change) and **WHOIS details** masked for a personal domain name.
 - A **password manager** and 2FA wherever possible.
 
 ---
