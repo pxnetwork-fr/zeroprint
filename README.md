@@ -1,12 +1,14 @@
-# 🧹 Zeroprint : nettoyage d'empreinte numérique avec un LLM
+# 🧹 zeroprint — nettoyer son empreinte numérique avec une IA
 
 🇫🇷 **Français** · [🇬🇧 English](README.en.md)
 
+<p align="center"><img src="https://pix-geeks.com/wp-content/uploads/2026/10/effacer-traces-numeriques-123846-1200x675.jpg.webp" alt="Effacer ses traces numériques avec une IA" width="100%"></p>
+
 > Réduire les traces que vous laissez en ligne, méthodiquement : inventaire, demandes d'effacement prêtes à envoyer, déréférencement, fuites de données et suivi des relances.
 
-Cette skill transforme Claude en assistant de nettoyage numérique. Elle part de ce que **vous** trouvez sur vous-même en ligne, classe chaque trace par sensibilité, rédige les demandes adaptées à votre pays (RGPD, UK GDPR, CCPA, KVKK) et vous laisse un tableau de suivi avec échéances, relances et modèle de plainte.
+Cette skill transforme votre assistant IA — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — en assistant de nettoyage numérique. Elle part de ce que **vous** trouvez sur vous-même en ligne, classe chaque trace par sensibilité, rédige les demandes adaptées à votre pays (RGPD, UK GDPR, CCPA, KVKK) et vous laisse un tableau de suivi avec échéances, relances et modèle de plainte.
 
-**Claude trie, rédige et suit les démarches. Il n'efface rien lui-même.** C'est vous qui envoyez chaque demande, et c'est le destinataire qui y répond.
+**L'IA trie, rédige et suit les démarches. Il n'efface rien lui-même.** C'est vous qui envoyez chaque demande, et c'est le destinataire qui y répond.
 
 ---
 
@@ -15,6 +17,7 @@ Cette skill transforme Claude en assistant de nettoyage numérique. Elle part de
 - [Pourquoi cette skill](#pourquoi-cette-skill)
 - [Ce qu'elle fait](#ce-quelle-fait)
 - [Ce qu'elle ne fait pas](#ce-quelle-ne-fait-pas)
+- [Compatibilité](#compatibilité)
 - [Installation](#installation)
 - [Utilisation](#utilisation)
 - [Déroulé détaillé](#déroulé-détaillé)
@@ -26,6 +29,7 @@ Cette skill transforme Claude en assistant de nettoyage numérique. Elle part de
 - [Prévention](#prévention)
 - [Contribuer](#contribuer)
 - [Avertissement](#avertissement)
+- [Auteur](#auteur)
 - [Licence](#licence)
 
 ---
@@ -68,30 +72,54 @@ Le résultat dépend surtout du suivi : un courtier qui ne répond pas, une fich
 
 ---
 
+## Compatibilité
+
+La skill suit le format **[Agent Skills](https://agentskills.io)** (`SKILL.md` + dossiers `references/` et `assets/`), un standard ouvert lu nativement par de nombreux agents. Pour les assistants grand public qui ne gèrent pas ce format, son contenu s'utilise tel quel comme instructions.
+
+| Assistant | Mode d'installation | Recherche web | Tableau de suivi |
+|---|---|---|---|
+| **Claude** (claude.ai, apps) | skill importée en `.zip` | ✅ | fichier ou tableur |
+| **Claude Code** | dossier `~/.claude/skills/` | ✅ | fichier CSV |
+| **Codex CLI**, **Gemini CLI**, **Hermes Agent** et autres agents compatibles Agent Skills | dossier de skills de l'agent | selon l'agent | fichier CSV |
+| **ChatGPT** | GPT personnalisé ou Projet : instructions + fichiers | ✅ | fichier ou tableau |
+| **Gemini** | Gem : instructions + fichiers | ✅ | tableau, export Sheets |
+| **Mistral Le Chat**, **Copilot**, modèles locaux… | instructions collées en début de conversation | selon l'outil | tableau à copier |
+
+Sans recherche web, la skill ne bloque pas : elle vous indique la source officielle à consulter et marque chaque délai « à vérifier ».
+
+---
+
 ## Installation
 
-### Option 1 — Claude (claude.ai, application de bureau ou mobile)
+### Agents compatibles Agent Skills (Claude, Claude Code, Codex, Gemini CLI, Hermes…)
 
-1. Téléchargez ce dépôt (**Code → Download ZIP**) ou seulement le dossier `nettoyage-empreinte-numerique/`.
-2. Compressez le dossier `nettoyage-empreinte-numerique/` en `.zip` : le fichier `SKILL.md` doit se trouver à la racine du dossier compressé.
-3. Dans Claude, ouvrez les réglages des skills et importez ce fichier `.zip`.
-4. Activez la skill.
-
-> Les skills personnalisées doivent être disponibles sur votre offre. Consultez l'aide de Claude (support.claude.com) si l'option n'apparaît pas.
-
-### Option 2 — Claude Code
+Copiez le dossier `nettoyage-empreinte-numerique/` dans le dossier de skills de votre agent :
 
 ```bash
-# Skill personnelle, disponible dans tous vos projets
 git clone https://github.com/pxnetwork-fr/zeroprint.git
+
+# Exemple pour Claude Code (skill disponible dans tous vos projets)
 cp -r zeroprint/nettoyage-empreinte-numerique ~/.claude/skills/
 ```
 
-Ou, pour un seul projet, copiez le dossier dans `.claude/skills/` à la racine du projet.
+Pour les autres agents (Codex CLI, Gemini CLI, Hermes Agent…), l'emplacement du dossier de skills est indiqué dans leur documentation. Sur **claude.ai**, compressez le dossier en `.zip` (avec `SKILL.md` à la racine) et importez-le dans les réglages des skills.
 
-### Option 3 — API / Agent SDK
+### ChatGPT (GPT personnalisé ou Projet)
 
-Chargez le dossier comme une skill personnalisée selon la documentation Anthropic (docs.claude.com, rubrique « Agent Skills »).
+1. Créez un **GPT personnalisé** (ou un **Projet**).
+2. Collez le contenu de `SKILL.md` dans les **instructions**, sans le bloc d'en-tête entre `---`.
+3. Ajoutez en **fichiers de connaissances** : `references/droit-applicable.md`, `references/modeles-courriers.md` et `assets/suivi-demandes.csv`.
+4. Activez la **recherche web**.
+
+### Gemini (Gem)
+
+1. Créez un **Gem**.
+2. Collez le contenu de `SKILL.md` dans les **instructions**, sans le bloc d'en-tête.
+3. Ajoutez les trois fichiers de `references/` et `assets/` comme **fichiers de connaissances**.
+
+### Tout autre assistant
+
+Collez le contenu de `SKILL.md` en tout début de conversation, puis joignez (ou collez à la suite) `droit-applicable.md` et `modeles-courriers.md`. Commencez ensuite par votre demande, par exemple : « Je veux retirer mon adresse des sites d'annuaires. »
 
 ---
 
@@ -112,9 +140,9 @@ La skill se déclenche toute seule sur des demandes comme :
 
 > **Vous :** Je veux nettoyer mon empreinte numérique, il y a mon adresse sur des sites d'annuaires.
 >
-> **Claude :** Pour cadrer : dans quel pays résidez-vous ? Quels identifiants couvrir (nom et variantes, pseudos, e-mails, téléphones, ancienne adresse) ? Et quel est l'objectif principal : moins de spam, recherche d'emploi, sécurité, un contenu précis ?
+> **L'assistant :** Pour cadrer : dans quel pays résidez-vous ? Quels identifiants couvrir (nom et variantes, pseudos, e-mails, téléphones, ancienne adresse) ? Et quel est l'objectif principal : moins de spam, recherche d'emploi, sécurité, un contenu précis ?
 
-Ensuite, vous cherchez votre nom, vos e-mails et vos numéros sur deux moteurs, vous collez les liens ou les captures, et Claude construit l'inventaire.
+Ensuite, vous cherchez votre nom, vos e-mails et vos numéros sur deux moteurs, vous collez les liens ou les captures, et l'assistant construit l'inventaire.
 
 ---
 
@@ -131,17 +159,17 @@ Ensuite, vous cherchez votre nom, vos e-mails et vos numéros sur deux moteurs, 
 ```
 
 ### Étape 0 — Cadrer
-Claude demande en une fois votre pays de résidence, les identifiants à couvrir et votre objectif. Le pays fixe le droit applicable, que la skill **vérifie par une recherche sur la source officielle** avant d'écrire le moindre délai. Si vous évoquez un danger (harcèlement, violences, menaces), elle commence par les démarches de protection et traite en priorité l'adresse et le téléphone.
+L'assistant demande en une fois votre pays de résidence, les identifiants à couvrir et votre objectif. Le pays fixe le droit applicable, que la skill **vérifie par une recherche sur la source officielle** avant d'écrire le moindre délai. Si vous évoquez un danger (harcèlement, violences, menaces), elle commence par les démarches de protection et traite en priorité l'adresse et le téléphone.
 
 ### Étape 1 — Inventaire
-Vous faites les recherches vous-même et collez les résultats. Claude les classe :
+Vous faites les recherches vous-même et collez les résultats. L'assistant les classe :
 
 | catégorie | site | URL | donnée exposée | sensibilité | action | cadre juridique |
 |---|---|---|---|---|---|---|
 | courtier en données | exemple-annuaire.com | https://… | adresse, téléphone | haute | formulaire d'opt-out | RGPD |
 | ancien compte | vieux-forum.net | https://… | pseudo, e-mail | moyenne | suppression de compte | RGPD |
 
-Claude ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
+L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
 
 ### Étape 2 — Courtiers en données
 Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception.
@@ -155,7 +183,7 @@ Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »
 - Si rien ne peut partir : la stratégie « publier mieux » (profil pro, page perso) est présentée pour ce qu'elle est, lente et sans retrait.
 
 ### Étape 5 — Fuites de données
-Vous vérifiez vos e-mails sur haveibeenpwned.com. Claude classe par risque : mot de passe à changer (surtout s'il est réutilisé), 2FA à activer (application plutôt que SMS), compte à fermer.
+Vous vérifiez vos e-mails sur haveibeenpwned.com. L'assistant classe par risque : mot de passe à changer (surtout s'il est réutilisé), 2FA à activer (application plutôt que SMS), compte à fermer.
 
 ### Étape 6 — Suivi et relances
 Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance calculée pour chaque envoi, relance rédigée d'avance, modèle de plainte pour l'UE, rappel de conserver chaque preuve, proposition de refaire l'inventaire tous les 6 à 12 mois.
@@ -194,7 +222,7 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
 ├── README.en.md                       ← documentation (anglais)
 ├── LICENSE
 └── nettoyage-empreinte-numerique/     ← la skill (dossier à installer)
-    ├── SKILL.md                       ← instructions lues par Claude
+    ├── SKILL.md                       ← instructions lues par l'assistant
     ├── references/
     │   ├── droit-applicable.md        ← cadres juridiques, délais, exceptions
     │   └── modeles-courriers.md       ← 8 modèles (FR, EN, TR)
@@ -268,10 +296,20 @@ Cette skill fournit des informations générales et des modèles de courriers. *
 
 ---
 
-## Licence
+## Auteur
 
-Distribuée sous licence [MIT](LICENSE). Vous pouvez l'utiliser, la modifier et la redistribuer librement.
+**Fabien Elharrar** est consultant en IA et en automatisation. Il accompagne aussi bien des artisans et des PME que de grandes entreprises pour améliorer leurs process et leur productivité grâce à l'IA.
+
+🌐 [fabien.elharrar.com](https://fabien.elharrar.com/) · 🐙 [@fabienelh](https://github.com/fabienelh)
+
+Un projet d'automatisation ou d'IA dans votre entreprise ? Rendez-vous sur [fabien.elharrar.com](https://fabien.elharrar.com/).
 
 ---
 
-<sub>Créée par [Fabien](https://github.com/fabienelh) · Une skill pour [Claude](https://claude.ai), d'Anthropic.</sub>
+## Licence
+
+Distribuée sous licence [MIT](LICENSE) : vous pouvez l'utiliser, la *forker*, la modifier et la redistribuer librement, y compris à des fins commerciales. Seule condition : conserver la mention de copyright de Fabien Elharrar dans vos copies.
+
+---
+
+<sub>Créée par [Fabien Elharrar](https://fabien.elharrar.com/) · Une skill au format ouvert Agent Skills, pour tout assistant IA.</sub>
