@@ -174,7 +174,7 @@ You run the searches yourself and paste the results. The assistant sorts them:
 The assistant does not search for you beyond what you provide.
 
 ### Step 2 — Data brokers
-For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement.
+For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement. For a California resident, it points first to the CPPA's DROP portal: one request covers every data broker registered in the state.
 
 ### Step 3 — Forgotten accounts
 A search for welcome emails ("confirm your address", "welcome"…) plus justdeleteme.xyz. For each account: export first if useful, permanent deletion, announced purge delay.

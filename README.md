@@ -172,7 +172,7 @@ Vous faites les recherches vous-même et collez les résultats. L'assistant les 
 L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
 
 ### Étape 2 — Courtiers en données
-Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception.
+Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception. Pour un résident de Californie, elle oriente d'abord vers le guichet DROP de la CPPA : une seule demande pour tous les courtiers enregistrés dans l'État.
 
 ### Étape 3 — Comptes oubliés
 Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »…) et consultation de justdeleteme.xyz. Pour chaque compte : export préalable si utile, suppression définitive, délai de purge annoncé.

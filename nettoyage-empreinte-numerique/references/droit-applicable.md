@@ -16,6 +16,7 @@ Ces repères servent à choisir le bon cadre et le bon modèle de courrier. Ils 
 
 - Le **droit de résidence** de la personne s'applique quand l'entreprise vise ce marché (site en français, livraison en France, prix en euros…). Le RGPD vaut aussi pour une entreprise hors UE qui suit ou cible des résidents européens.
 - La **CCPA ne protège pas** un résident européen face à une entreprise européenne. Pour un courtier américain qui ne vise pas l'Europe, utiliser son formulaire d'opt-out, sans invoquer de loi.
+- Pour un **résident de Californie**, le guichet DROP (Delete Request and Opt-out Platform) de la CPPA, ouvert aux particuliers depuis août 2026, remplace les opt-outs un par un chez les courtiers enregistrés en Californie : une demande unique, identité vérifiée, traitement sous 90 jours (repère). Il ne couvre ni les courtiers non enregistrés ni les autres sites.
 - Pour un **moteur de recherche**, le déréférencement passe par les formulaires du moteur, pas par le site d'origine.
 - Un **délai** court à partir de la réception de la demande : garder une preuve de la date d'envoi.
 

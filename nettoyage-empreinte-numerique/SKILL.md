@@ -47,6 +47,8 @@ Pour chaque courtier, chercher d'abord sa **page d'opt-out officielle** (recherc
 
 Les courtiers américains (Spokeo, BeenVerified, Whitepages, MyLife…) ne relèvent pas de la CCPA pour un résident européen : utiliser leur propre procédure d'opt-out, et le RGPD seulement s'ils visent le marché européen.
 
+Pour un **résident de Californie**, commencer par le guichet DROP de la CPPA (cppa.ca.gov) : une seule demande, après vérification d'identité, vise tous les courtiers enregistrés dans l'État, qui doivent la consulter régulièrement et la traiter dans le délai fixé par la CPPA (repère : 90 jours, à vérifier). Les courtiers non enregistrés et les sites hors Californie restent à traiter un par un.
+
 ## Étape 3 — Comptes oubliés
 
 Lister les services dont la personne se souvient, puis compléter avec :
