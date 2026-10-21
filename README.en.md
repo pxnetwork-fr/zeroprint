@@ -62,7 +62,8 @@ Results come mostly from follow-up: a broker that never answers, a listing that 
 - 👻 **Forgotten accounts**: a method to find them in your inbox and delete them for good (not just deactivate).
 - 🔍 **Delisting** from search engines, kept separate from the request to the source site.
 - 🔐 **Data breaches**: the order of actions (password, 2FA, account closure).
-- 📅 **Follow-up**: a table with computed deadlines, reminders drafted in advance, a complaint template for the regulator, and a 6–12-month check-up.
+- 📵 **Stop the spam**: objection to direct marketing (GDPR Art. 21), and for France the cold-calling rules in force since Bloctel was shut down.
+- 📅 **Follow-up**: a table with computed deadlines, reminders drafted in advance, a complaint template for the regulator, Google Alerts on your identifiers, and a 6–12-month check-up.
 
 ## What it does not do
 
@@ -157,7 +158,7 @@ Then you search your name, emails and phone numbers on two search engines, paste
  3. Accounts        inbox + justdeleteme → permanent deletion
  4. Pages & engines request to the site / delisting from the engine
  5. Breaches        haveibeenpwned → password, 2FA, closure
- 6. Follow-up       deadlines, reminders, complaint, 6–12-month check
+ 6. Follow-up       deadlines, reminders, complaint, alerts, 6–12-month check
 ```
 
 ### Step 0 — Scope
@@ -171,24 +172,25 @@ You run the searches yourself and paste the results. The assistant sorts them:
 | data broker | example-directory.com | https://… | address, phone | high | opt-out form | GDPR |
 | old account | old-forum.net | https://… | username, email | medium | account deletion | GDPR |
 
-The assistant does not search for you beyond what you provide.
+It gives you the queries to run (quoted name, variants, emails, phone number formats, reverse image search) and points to Google's "Results about you" tool where it is available in your country. The assistant does not search for you beyond what you provide.
 
 ### Step 2 — Data brokers
-For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement. For a California resident, it points first to the CPPA's DROP portal: one request covers every data broker registered in the state.
+For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement. Each request also asks where the data came from (GDPR Art. 15), to cut the supply upstream. For a California resident, it points first to the CPPA's DROP portal: one request covers every data broker registered in the state.
 
 ### Step 3 — Forgotten accounts
-A search for welcome emails ("confirm your address", "welcome"…) plus justdeleteme.xyz. For each account: export first if useful, permanent deletion, announced purge delay.
+A search for welcome emails ("confirm your address", "welcome"…), justdeleteme.xyz, apps connected through Google / Apple / Facebook sign-in, and password manager entries. For each account: export first if useful, permanent deletion, announced purge delay.
 
 ### Step 4 — Third-party pages and search engines
 - Content on a site: request to the site, with the exact URL and the reason.
 - A result tied to your name: delisting request through the engine's forms.
+- Removal obtained: ask the engine to refresh its copy, otherwise the result lingers for weeks.
 - If nothing can come down: the "publish better" approach (professional profile, personal page) is presented for what it is: slow, and nothing gets removed.
 
 ### Step 5 — Data breaches
 You check your emails on haveibeenpwned.com. The assistant ranks by risk: password to change (especially if reused), 2FA to enable (an authenticator app rather than SMS), account to close.
 
 ### Step 6 — Follow-up and reminders
-A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for each request, a reminder drafted in advance, a complaint template for the EU, a reminder to keep proof of every submission, and an offer to redo the inventory every 6 to 12 months.
+A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for each request, a reminder drafted in advance, a complaint template for the EU, normalised statuses (sent, acknowledged, done, refused, reminded, complaint filed, back), a reminder to keep proof of every submission, Google Alerts on your name, emails and phone numbers to catch a listing that comes back, and an offer to redo the inventory every 6 to 12 months.
 
 ---
 
@@ -209,6 +211,9 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
 | 🇪🇺 EU / EEA | GDPR | same | national authority |
 | 🇬🇧 United Kingdom | UK GDPR | 1 month | ICO |
 | 🇹🇷 Turkey | KVKK (Law 6698) | 30 days | KVKK Board |
+| 🇨🇭 Switzerland | FADP (Art. 25, 32) | 30 days (access); no deadline for erasure | FDPIC, civil action |
+| 🇨🇦 Quebec | Law 25 (Art. 28, 28.1, 32) | 30 days | Commission d'accès à l'information |
+| 🇨🇦 Canada outside Quebec | PIPEDA | 30 days (access) | Office of the Privacy Commissioner |
 | 🇺🇸 California | CCPA / CPRA | 45 days | CPPA, DROP portal |
 | 🌍 Elsewhere | local law / opt-out | varies | local authority |
 
@@ -227,7 +232,7 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
     ├── SKILL.md                       ← instructions the assistant reads
     ├── references/
     │   ├── droit-applicable.md        ← legal frameworks, deadlines, exceptions
-    │   └── modeles-courriers.md       ← 8 templates (FR, EN, TR)
+    │   └── modeles-courriers.md       ← 9 templates (FR, EN, TR)
     └── assets/
         └── suivi-demandes.csv         ← tracking table template
 ```
@@ -242,6 +247,7 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
 6. Reminder after the deadline
 7. Complaint to the regulator (CNIL): documents to gather
 8. Delisting from a search engine
+9. Objection to direct marketing (GDPR Art. 21), in French
 
 They are templates to adapt, never to send as is.
 
@@ -275,6 +281,7 @@ The skill applies these rules before doing anything:
 - An **email alias** for every sign-up (SimpleLogin, addy.io or your mail provider's aliases): if one leaks, delete it.
 - A **browser or extension** that blocks trackers by default.
 - **Social networks** set to private: profile not indexed, friends list hidden.
+- In France, commercial **cold calling** without prior consent has been banned since 11 August 2026 (Bloctel is gone): tick nothing at sign-up, report unsolicited calls on SignalConso.
 - A **secondary phone number** for sign-ups and classified ads.
 - A **password manager** and 2FA wherever possible.
 

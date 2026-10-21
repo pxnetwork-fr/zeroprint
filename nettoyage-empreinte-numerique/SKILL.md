@@ -1,6 +1,6 @@
 ---
 name: nettoyage-empreinte-numerique
-description: Accompagne une personne qui veut réduire sa propre empreinte numérique — inventaire de ce qui est visible, courriers d'effacement (RGPD, UK GDPR, CCPA, KVKK), suppression de vieux comptes, déréférencement, fuites de données, puis suivi des relances. Déclenche cette skill dès qu'il s'agit de « supprimer mes données d'Internet », « effacer mon empreinte numérique », « retirer mon adresse / mon téléphone de sites », « me faire retirer des data brokers », « supprimer mes vieux comptes », « faire une demande RGPD d'effacement », « déréférencer un article sur moi », « vérifier si mon e-mail a fuité », ou quand quelqu'un cite le thread viral « 6 heures avec Claude ». Ne s'applique qu'aux données de la personne elle-même ou d'une personne qui l'a mandatée.
+description: À utiliser dès qu'une personne veut réduire sa propre empreinte numérique ou cite le thread viral « 6 heures avec Claude » — « supprimer mes données d'Internet », « effacer mon empreinte numérique », « retirer mon adresse / mon téléphone de sites », « me faire retirer des data brokers », « supprimer mes vieux comptes », « faire une demande RGPD d'effacement », « déréférencer un article sur moi », « vérifier si mon e-mail a fuité », « arrêter le spam et le démarchage ». Ne s'applique qu'aux données de la personne elle-même ou d'une personne qui l'a mandatée.
 ---
 
 # Nettoyage d'empreinte numérique
@@ -31,7 +31,7 @@ Choisir le cadre juridique avec `references/droit-applicable.md`, le vérifier p
 
 ## Étape 1 — Inventaire
 
-La personne cherche elle-même son nom, ses e-mails et ses téléphones sur Google (et sur un second moteur), puis colle les résultats : liens ou captures. L'assistant les classe dans un tableau :
+La personne cherche elle-même sur Google et sur un second moteur (Bing, DuckDuckGo), puis colle les résultats : liens ou captures. Lui donner les **requêtes à lancer** : le nom entre guillemets, seul puis avec la ville et l'employeur ; chaque variante (prénom abrégé, nom de naissance, pseudo) ; chaque e-mail entre guillemets ; chaque téléphone sous ses formats courants (06 12 34 56 78, 0612345678, +33612345678) ; une recherche d'image inversée sur sa photo de profil. Si Google propose dans son pays l'outil « Résultats vous concernant », le signaler : il repère les pages qui affichent ses coordonnées, permet d'en demander le retrait des résultats et avertit quand une nouvelle page apparaît. L'assistant classe le tout dans un tableau :
 
 `catégorie | site | URL | donnée exposée | sensibilité | action | cadre juridique`
 
@@ -45,6 +45,8 @@ Trier par priorité : d'abord la sensibilité haute, ensuite ce qui est facile �
 
 Pour chaque courtier, chercher d'abord sa **page d'opt-out officielle** (recherche web sur le domaine du courtier ; sans accès au web, demander à la personne de la trouver ou de coller la page). Un formulaire est souvent plus rapide qu'un courrier : donner le lien et la marche à suivre. Sinon, rédiger la demande avec le modèle adapté de `references/modeles-courriers.md`, en indiquant les URL des fiches, les données visées, la demande d'effacement **et** d'arrêt de la revente, le délai, la demande d'accusé de réception.
 
+Joindre à chaque demande d'effacement une **demande de la source des données** (RGPD, art. 15, § 1, g) : savoir d'où le courtier tient l'adresse ou le téléphone (annuaire, registre, autre courtier, fuite) permet de remonter à la source et d'éviter que la fiche revienne. Le modèle 1 contient ce paragraphe ; ajouter la source trouvée à l'inventaire.
+
 Les courtiers américains (Spokeo, BeenVerified, Whitepages, MyLife…) ne relèvent pas de la CCPA pour un résident européen : utiliser leur propre procédure d'opt-out, et le RGPD seulement s'ils visent le marché européen.
 
 Pour un **résident de Californie**, commencer par le guichet DROP de la CPPA (cppa.ca.gov) : une seule demande, après vérification d'identité, vise tous les courtiers enregistrés dans l'État, qui doivent la consulter régulièrement et la traiter dans le délai fixé par la CPPA (repère : 90 jours, à vérifier). Les courtiers non enregistrés et les sites hors Californie restent à traiter un par un.
@@ -53,14 +55,19 @@ Pour un **résident de Californie**, commencer par le guichet DROP de la CPPA (c
 
 Lister les services dont la personne se souvient, puis compléter avec :
 - une recherche dans sa boîte mail des messages de bienvenue (« bienvenue », « confirmez votre adresse », « welcome », « verify your email ») ;
-- justdeleteme.xyz, qui indique la difficulté de suppression et le lien direct par service.
+- justdeleteme.xyz, qui indique la difficulté de suppression et le lien direct par service ;
+- la liste des applications connectées via « Se connecter avec Google / Apple / Facebook », dans les réglages de sécurité de ces comptes ;
+- les entrées du gestionnaire de mots de passe et les mots de passe enregistrés dans le navigateur.
 
 Pour chaque compte : export préalable des données si utile, procédure de **suppression définitive** (pas de simple désactivation), délai de purge annoncé par le service. Si aucune procédure n'existe, courrier d'effacement.
+
+Pour les réseaux sociaux encore utilisés : retirer les identifications non souhaitées, supprimer ou archiver les anciennes publications publiques avec l'outil de gestion de l'activité du réseau, désactiver l'indexation du profil par les moteurs.
 
 ## Étape 4 — Pages tierces et moteurs de recherche
 
 - **Contenu sur un site tiers** : demande au site lui-même (responsable du traitement), avec l'URL exacte et le motif.
 - **Lien associé au nom dans un moteur** : demande de **déréférencement** directement au moteur, via ses formulaires (Google propose un formulaire de suppression d'informations personnelles et un formulaire RGPD de déréférencement ; vérifier leur emplacement actuel par recherche).
+- **Après un retrait obtenu**, le résultat peut rester affiché des semaines : demander au moteur de rafraîchir sa copie (Google : outil « Supprimer un contenu obsolète », à retrouver par recherche) et noter la vérification dans le tableau de suivi.
 - **Si rien ne peut être retiré**, la stratégie « publier mieux » (profil professionnel, page personnelle, contenus propres bien référencés) reste possible, mais l'annoncer pour ce qu'elle est : le contenu reste en ligne, il recule seulement dans les résultats, et cela prend des mois. Ne jamais proposer de faux contenus, de faux avis, de signalements abusifs ni de pression sur un journaliste.
 
 ## Étape 5 — Fuites de données
@@ -78,9 +85,12 @@ C'est l'étape que le thread viral oublie, et celle qui fait le résultat. Produ
 
 `destinataire | type de demande | canal | date d'envoi | échéance | réponse | relance envoyée le | statut | preuve`
 
+Statut : une valeur parmi `à envoyer`, `envoyée`, `accusé reçu`, `effectuée`, `refusée`, `relancée`, `plainte déposée`, `revenue` (fiche réapparue : ouvrir une nouvelle demande). Une demande passe à `effectuée` seulement quand la personne a constaté que la fiche a disparu **et** que le résultat de recherche a disparu.
+
 - calculer chaque échéance à partir de la date d'envoi et du délai vérifié à l'étape 0 ;
 - rédiger d'avance la **relance** et, pour l'UE, le **modèle de plainte** à l'autorité (`references/modeles-courriers.md`) ;
 - rappeler de garder une preuve de chaque envoi (capture, accusé de réception, copie du courriel) ;
+- proposer une **veille automatique** entre deux inventaires : une alerte Google Alerts (google.com/alerts) par identifiant, chaque fois entre guillemets (« Prénom Nom », chaque e-mail, chaque téléphone dans ses formats courants), fréquence « au fur et à mesure ». L'alerte ne voit que les nouvelles pages indexées par Google : elle ne remplace pas l'inventaire, elle sert à ouvrir une nouvelle demande dès qu'une fiche réapparaît ;
 - proposer de refaire l'inventaire **tous les 6 à 12 mois**, parce que les fiches reviennent. Si la personne le souhaite et que l'outil sait créer des rappels ou des tâches planifiées, créer le rappel ; sinon, donner les dates à noter dans son agenda.
 
 ## Prévention
@@ -89,6 +99,7 @@ C'est l'étape que le thread viral oublie, et celle qui fait le résultat. Produ
 - Navigateur ou extension qui bloque les traqueurs par défaut.
 - Réglages de confidentialité des réseaux sociaux (profil non indexé, liste d'amis masquée).
 - Numéro de téléphone secondaire pour les inscriptions et les annonces.
+- Contre le spam et le démarchage, l'**opposition à la prospection** (RGPD, art. 21, § 2, modèle 9) s'impose sans exception, indépendamment de l'effacement. En France, depuis le 11 août 2026, le démarchage téléphonique commercial requiert un consentement préalable (décret n° 2026-662 ; Bloctel n'existe plus) : ne rien cocher lors des inscriptions, et signaler un appel non sollicité sur SignalConso.
 
 ## Livrable
 
@@ -108,3 +119,4 @@ Le thread viral parlait de « 6 à 7 heures » ; annoncer plutôt une ou deux he
 - Écrire « ils sont obligés de supprimer » ou promettre un résultat définitif.
 - Faire l'inventaire de l'empreinte de quelqu'un d'autre sans mandat.
 - Recommander l'enfouissement par faux contenus ou faux avis.
+- Marquer une demande « effectuée » sans que la personne ait vérifié la disparition de la fiche et du résultat de recherche.

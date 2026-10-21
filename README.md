@@ -60,7 +60,8 @@ Le résultat dépend surtout du suivi : un courtier qui ne répond pas, une fich
 - 👻 **Comptes oubliés** : méthode pour les retrouver dans votre boîte mail et les supprimer pour de bon (pas une simple désactivation).
 - 🔍 **Déréférencement** auprès des moteurs de recherche, distinct de la demande au site d'origine.
 - 🔐 **Fuites de données** : ordre des actions (mot de passe, 2FA, fermeture de compte).
-- 📅 **Suivi** : tableau avec échéances calculées, relances rédigées d'avance, modèle de plainte à l'autorité, rappel à 6–12 mois.
+- 📵 **Stop au spam** : opposition à la prospection (RGPD art. 21), et en France les règles du démarchage téléphonique depuis la fin de Bloctel.
+- 📅 **Suivi** : tableau avec échéances calculées, relances rédigées d'avance, modèle de plainte à l'autorité, alertes Google sur vos identifiants, rappel à 6–12 mois.
 
 ## Ce qu'elle ne fait pas
 
@@ -155,7 +156,7 @@ Ensuite, vous cherchez votre nom, vos e-mails et vos numéros sur deux moteurs, 
  3. Comptes         boîte mail + justdeleteme → suppression définitive
  4. Pages & moteurs demande au site / déréférencement au moteur
  5. Fuites          haveibeenpwned → mot de passe, 2FA, fermeture
- 6. Suivi           échéances, relances, plainte, rappel 6–12 mois
+ 6. Suivi           échéances, relances, plainte, alertes, rappel 6–12 mois
 ```
 
 ### Étape 0 — Cadrer
@@ -169,24 +170,25 @@ Vous faites les recherches vous-même et collez les résultats. L'assistant les 
 | courtier en données | exemple-annuaire.com | https://… | adresse, téléphone | haute | formulaire d'opt-out | RGPD |
 | ancien compte | vieux-forum.net | https://… | pseudo, e-mail | moyenne | suppression de compte | RGPD |
 
-L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
+Il vous donne les requêtes à lancer (nom entre guillemets, variantes, e-mails, formats de téléphone, image inversée) et signale l'outil Google « Résultats vous concernant » s'il existe dans votre pays. L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
 
 ### Étape 2 — Courtiers en données
-Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception. Pour un résident de Californie, elle oriente d'abord vers le guichet DROP de la CPPA : une seule demande pour tous les courtiers enregistrés dans l'État.
+Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception. Chaque demande inclut une question sur la source des données (RGPD art. 15), pour couper l'alimentation en amont. Pour un résident de Californie, elle oriente d'abord vers le guichet DROP de la CPPA : une seule demande pour tous les courtiers enregistrés dans l'État.
 
 ### Étape 3 — Comptes oubliés
-Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »…) et consultation de justdeleteme.xyz. Pour chaque compte : export préalable si utile, suppression définitive, délai de purge annoncé.
+Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »…), consultation de justdeleteme.xyz, applications connectées via Google / Apple / Facebook, entrées du gestionnaire de mots de passe. Pour chaque compte : export préalable si utile, suppression définitive, délai de purge annoncé.
 
 ### Étape 4 — Pages tierces et moteurs
 - Contenu sur un site : demande au site, avec l'URL exacte et le motif.
 - Résultat associé à votre nom : demande de déréférencement via les formulaires du moteur.
+- Retrait obtenu : demande de rafraîchissement de la copie du moteur, sinon le résultat traîne des semaines.
 - Si rien ne peut partir : la stratégie « publier mieux » (profil pro, page perso) est présentée pour ce qu'elle est, lente et sans retrait.
 
 ### Étape 5 — Fuites de données
 Vous vérifiez vos e-mails sur haveibeenpwned.com. L'assistant classe par risque : mot de passe à changer (surtout s'il est réutilisé), 2FA à activer (application plutôt que SMS), compte à fermer.
 
 ### Étape 6 — Suivi et relances
-Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance calculée pour chaque envoi, relance rédigée d'avance, modèle de plainte pour l'UE, rappel de conserver chaque preuve, proposition de refaire l'inventaire tous les 6 à 12 mois.
+Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance calculée pour chaque envoi, relance rédigée d'avance, modèle de plainte pour l'UE, statuts normalisés (envoyée, accusé reçu, effectuée, refusée, relancée, plainte déposée, revenue), rappel de conserver chaque preuve, alertes Google Alerts sur votre nom, vos e-mails et vos numéros pour repérer une fiche qui revient, proposition de refaire l'inventaire tous les 6 à 12 mois.
 
 ---
 
@@ -207,6 +209,9 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
 | 🇪🇺 UE / EEE | RGPD | idem | autorité nationale |
 | 🇬🇧 Royaume-Uni | UK GDPR | 1 mois | ICO |
 | 🇹🇷 Turquie | KVKK (loi 6698) | 30 jours | Conseil KVKK |
+| 🇨🇭 Suisse | LPD (art. 25, 32) | 30 jours (accès) ; pas de délai pour l'effacement | PFPDT, action civile |
+| 🇨🇦 Québec | Loi 25 (art. 28, 28.1, 32) | 30 jours | Commission d'accès à l'information |
+| 🇨🇦 Canada hors Québec | LPRPDE (PIPEDA) | 30 jours (accès) | Commissariat à la protection de la vie privée |
 | 🇺🇸 Californie | CCPA / CPRA | 45 jours | CPPA, guichet DROP |
 | 🌍 Ailleurs | loi locale / opt-out | variable | autorité locale |
 
@@ -225,7 +230,7 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
     ├── SKILL.md                       ← instructions lues par l'assistant
     ├── references/
     │   ├── droit-applicable.md        ← cadres juridiques, délais, exceptions
-    │   └── modeles-courriers.md       ← 8 modèles (FR, EN, TR)
+    │   └── modeles-courriers.md       ← 9 modèles (FR, EN, TR)
     └── assets/
         └── suivi-demandes.csv         ← gabarit du tableau de suivi
 ```
@@ -240,6 +245,7 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
 6. Relance après échéance
 7. Plainte à l'autorité (CNIL) : pièces à réunir
 8. Déréférencement auprès d'un moteur de recherche
+9. Opposition à la prospection commerciale (RGPD art. 21)
 
 Ce sont des gabarits à adapter, jamais à envoyer tels quels.
 
@@ -273,6 +279,7 @@ La skill applique ces règles avant toute action :
 - Un **alias e-mail** par inscription (SimpleLogin, addy.io ou les alias de votre messagerie) : si l'un fuit, on le supprime.
 - Un **navigateur ou une extension** qui bloque les traqueurs par défaut.
 - Des **réseaux sociaux** réglés en privé : profil non indexé, liste d'amis masquée.
+- En France, le **démarchage téléphonique** commercial est interdit sans consentement préalable depuis le 11 août 2026 (Bloctel a disparu) : ne rien cocher à l'inscription, signaler les appels non sollicités sur SignalConso.
 - Un **numéro secondaire** pour les inscriptions et les petites annonces.
 - Un **gestionnaire de mots de passe** et la 2FA partout où c'est possible.
 

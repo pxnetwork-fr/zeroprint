@@ -18,6 +18,8 @@ Les données concernées sont notamment : [nom, adresse postale, numéro de tél
 
 Je m'oppose également, sur le fondement de l'article 21 du RGPD, à toute réutilisation, communication ou vente de ces données à des tiers. Je vous demande d'informer de mon effacement les destinataires à qui elles auraient été transmises (article 19).
 
+Je vous demande par ailleurs, en application de l'article 15, paragraphe 1, point g) du RGPD, de m'indiquer auprès de quelle source vous avez obtenu ces données.
+
 Conformément à l'article 12 du RGPD, je vous remercie de me confirmer l'effacement dans un délai d'un mois à compter de la réception de cette demande. À défaut de réponse satisfaisante, je me réserve la possibilité de saisir la CNIL.
 
 Si vous avez un doute raisonnable sur mon identité, je fournirai un justificatif sur demande.
@@ -141,3 +143,27 @@ Passer par le formulaire du moteur (Google : formulaire de suppression d'informa
 - la requête qui le fait apparaître (souvent le nom) ;
 - en une ou deux phrases, pourquoi l'information est inexacte, obsolète, excessive ou porte atteinte à la vie privée ;
 - pour une adresse ou un téléphone personnels, le préciser : ce type de donnée est souvent retiré plus facilement.
+
+---
+
+## 9. Opposition à la prospection commerciale — RGPD (France / UE)
+
+**Objet : Opposition à l'utilisation de mes données à des fins de prospection (article 21 du RGPD)**
+
+Madame, Monsieur,
+
+En application de l'article 21, paragraphe 2 du Règlement général sur la protection des données (RGPD), je m'oppose à tout traitement de mes données personnelles à des fins de prospection commerciale, par quelque canal que ce soit (courriel, SMS, téléphone, courrier postal), y compris le profilage lié à cette prospection. Cette opposition n'a pas à être motivée et, conformément au paragraphe 3 du même article, mes données ne peuvent plus être traitées à ces fins.
+
+Les données concernées sont : [adresse e-mail, numéro de téléphone, adresse postale]. Je retire par la même occasion tout consentement que j'aurais pu donner, y compris au démarchage téléphonique.
+
+Conformément à l'article 12 du RGPD, je vous remercie de me confirmer la prise en compte de cette opposition dans un délai d'un mois à compter de la réception de cette demande. À défaut, je me réserve la possibilité de saisir la CNIL.
+
+Si vous avez un doute raisonnable sur mon identité, je fournirai un justificatif sur demande.
+
+Je vous prie d'agréer, Madame, Monsieur, l'expression de mes salutations distinguées.
+
+[Prénom Nom]
+[Adresse e-mail de contact]
+[Date]
+
+> En France, depuis le 11 août 2026, le démarchage téléphonique commercial sans consentement préalable est interdit (décret n° 2026-662) et Bloctel a été supprimé : un appel non sollicité se signale sur SignalConso, en plus de ce courrier.
