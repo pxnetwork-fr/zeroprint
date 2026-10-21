@@ -143,6 +143,7 @@ The skill triggers on its own for requests such as:
 - "Has my email been in a data breach?"
 - "Delete my late father's accounts"
 - "Get a photo of my face out of a search engine"
+- "My data shows up in ChatGPT or Meta AI"
 - "I saw the '6 hours with Claude' thread, can we do that?"
 
 ### Sample first exchange
@@ -178,13 +179,13 @@ You run the searches yourself and paste the results. The assistant sorts them:
 | data broker | example-directory.com | https://… | address, phone | high | opt-out form | GDPR |
 | old account | old-forum.net | https://… | username, email | medium | account deletion | GDPR |
 
-It gives you the queries to run (quoted name, variants, emails, phone number formats, reverse image search) and points to Google's "Results about you" tool where it is available in your country. The assistant does not search for you beyond what you provide.
+It gives you the queries to run (quoted name, variants, emails, phone number formats, reverse image search, a face search engine if you agree to it) and points to Google's "Results about you" tool where it is available in your country. The assistant does not search for you beyond what you provide.
 
 ### Step 2 — Data brokers
 For each broker, the skill first looks for the official opt-out page, often faster than a letter. Failing that, it drafts a request for erasure **and** an end to resale, with the listing URLs and a request for acknowledgement. Each request also asks where the data came from (GDPR Art. 15), to cut the supply upstream. For a California resident, it points first to the CPPA's DROP portal: one request covers every data broker registered in the state. B2B brokers, the main source of professional cold outreach, have their opt-out pages listed in `references/courtiers.md`.
 
 ### Step 3 — Forgotten accounts
-A search for welcome emails ("confirm your address", "welcome"…), justdeleteme.xyz, apps connected through Google / Apple / Facebook sign-in, and password manager entries. For each account: export first if useful, permanent deletion, announced purge delay.
+A search for welcome emails ("confirm your address", "welcome"…), justdeleteme.xyz, apps connected through Google / Apple / Facebook sign-in, and password manager entries. For each account: export first if useful, permanent deletion, announced purge delay. For networks still in use: remove tags, clean up old posts, keep the profile unindexed, and turn on auto-deletion of activity history with Google, Apple and Meta.
 
 ### Step 4 — Third-party pages and search engines
 - Content on a site: request to the site, with the exact URL and the reason.
@@ -307,7 +308,7 @@ The skill applies these rules before doing anything:
 
 Contributions are welcome, especially:
 
-- 🌍 **new legal frameworks** (Switzerland/nFADP, Quebec/Law 25, Brazil/LGPD…) in `references/droit-applicable.md`;
+- 🌍 **new legal frameworks** (Brazil/LGPD, Morocco, Australia, other US states…) in `references/droit-applicable.md`;
 - ✉️ **letter templates** in other languages;
 - 🔄 **updates** when a deadline, portal or form changes, with a link to the official source.
 

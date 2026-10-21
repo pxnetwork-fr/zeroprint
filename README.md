@@ -8,7 +8,7 @@
 
 Cette skill transforme votre assistant IA — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — en assistant de nettoyage numérique. Elle part de ce que **vous** trouvez sur vous-même en ligne, classe chaque trace par sensibilité, rédige les demandes adaptées à votre pays (RGPD, UK GDPR, CCPA, KVKK) et vous laisse un tableau de suivi avec échéances, relances et modèle de plainte.
 
-**L'IA trie, rédige et suit les démarches. Il n'efface rien lui-même.** C'est vous qui envoyez chaque demande, et c'est le destinataire qui y répond.
+**L'IA trie, rédige et suit les démarches. Elle n'efface rien elle-même.** C'est vous qui envoyez chaque demande, et c'est le destinataire qui y répond.
 
 ---
 
@@ -141,6 +141,7 @@ La skill se déclenche toute seule sur des demandes comme :
 - « Est-ce que mon e-mail a fuité ? »
 - « Supprimer les comptes de mon père décédé »
 - « Retirer une photo de mon visage d'un moteur de recherche »
+- « Mes données apparaissent dans ChatGPT ou Meta AI »
 - « J'ai vu le thread "6 heures avec Claude", on le fait ? »
 
 ### Exemple de premier échange
@@ -176,13 +177,13 @@ Vous faites les recherches vous-même et collez les résultats. L'assistant les 
 | courtier en données | exemple-annuaire.com | https://… | adresse, téléphone | haute | formulaire d'opt-out | RGPD |
 | ancien compte | vieux-forum.net | https://… | pseudo, e-mail | moyenne | suppression de compte | RGPD |
 
-Il vous donne les requêtes à lancer (nom entre guillemets, variantes, e-mails, formats de téléphone, image inversée) et signale l'outil Google « Résultats vous concernant » s'il existe dans votre pays. L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
+Il vous donne les requêtes à lancer (nom entre guillemets, variantes, e-mails, formats de téléphone, image inversée, moteur de reconnaissance faciale si vous l'acceptez) et signale l'outil Google « Résultats vous concernant » s'il existe dans votre pays. L'assistant ne lance pas de recherche sur vous au-delà de ce que vous fournissez.
 
 ### Étape 2 — Courtiers en données
 Pour chaque courtier, la skill cherche d'abord la page d'opt-out officielle, souvent plus rapide qu'un courrier. À défaut, elle rédige une demande d'effacement **et** d'arrêt de la revente, avec les URL des fiches et la demande d'accusé de réception. Chaque demande inclut une question sur la source des données (RGPD art. 15), pour couper l'alimentation en amont. Pour un résident de Californie, elle oriente d'abord vers le guichet DROP de la CPPA : une seule demande pour tous les courtiers enregistrés dans l'État. Les courtiers B2B, première source du démarchage professionnel, ont leurs pages d'opt-out listées dans `references/courtiers.md`.
 
 ### Étape 3 — Comptes oubliés
-Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »…), consultation de justdeleteme.xyz, applications connectées via Google / Apple / Facebook, entrées du gestionnaire de mots de passe. Pour chaque compte : export préalable si utile, suppression définitive, délai de purge annoncé.
+Recherche des e-mails de bienvenue (« confirmez votre adresse », « welcome »…), consultation de justdeleteme.xyz, applications connectées via Google / Apple / Facebook, entrées du gestionnaire de mots de passe. Pour chaque compte : export préalable si utile, suppression définitive, délai de purge annoncé. Pour les réseaux encore utilisés : retrait des identifications, nettoyage des anciennes publications, profil non indexé, suppression automatique de l'historique d'activité chez Google, Apple et Meta.
 
 ### Étape 4 — Pages tierces et moteurs
 - Contenu sur un site : demande au site, avec l'URL exacte et le motif.
@@ -305,7 +306,7 @@ La skill applique ces règles avant toute action :
 
 Les contributions sont bienvenues, en particulier :
 
-- 🌍 **nouveaux cadres juridiques** (Suisse/nLPD, Québec/Loi 25, Brésil/LGPD…) dans `references/droit-applicable.md` ;
+- 🌍 **nouveaux cadres juridiques** (Brésil/LGPD, Maroc, Australie, autres États américains…) dans `references/droit-applicable.md` ;
 - ✉️ **modèles de courriers** dans d'autres langues ;
 - 🔄 **mises à jour** quand un délai, un guichet ou un formulaire change, avec le lien vers la source officielle.
 
