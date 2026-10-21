@@ -1,4 +1,4 @@
-# 🧹 Zeroprint : nettoyage d'empreinte numérique avec Claude
+# 🧹 Zeroprint : nettoyage d'empreinte numérique avec un LLM
 
 🇫🇷 **Français** · [🇬🇧 English](README.en.md)
 
