@@ -6,7 +6,7 @@
 
 > Réduire les traces que vous laissez en ligne, méthodiquement : inventaire, demandes d'effacement prêtes à envoyer, déréférencement, fuites de données et suivi des relances.
 
-Cette skill transforme votre assistant IA — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — en assistant de nettoyage numérique. Elle part de ce que **vous** trouvez sur vous-même en ligne, classe chaque trace par sensibilité, rédige les demandes adaptées à votre pays (RGPD, UK GDPR, CCPA, KVKK) et vous laisse un tableau de suivi avec échéances, relances et modèle de plainte.
+Cette skill transforme votre assistant IA — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — en assistant de nettoyage numérique. Elle part de ce que **vous** trouvez sur vous-même en ligne, classe chaque trace par sensibilité, rédige les demandes adaptées à votre pays (RGPD, UK GDPR, CCPA, KVKK, LPD suisse, Loi 25, LGPD) et vous laisse un tableau de suivi avec échéances, relances et modèle de plainte.
 
 **L'IA trie, rédige et suit les démarches. Elle n'efface rien elle-même.** C'est vous qui envoyez chaque demande, et c'est le destinataire qui y répond.
 
@@ -222,6 +222,7 @@ Tableau de suivi généré à partir de `assets/suivi-demandes.csv` : échéance
 | 🇨🇭 Suisse | LPD (art. 25, 32) | 30 jours (accès) ; pas de délai pour l'effacement | PFPDT, action civile |
 | 🇨🇦 Québec | Loi 25 (art. 28, 28.1, 32) | 30 jours | Commission d'accès à l'information |
 | 🇨🇦 Canada hors Québec | LPRPDE (PIPEDA) | 30 jours (accès) | Commissariat à la protection de la vie privée |
+| 🇧🇷 Brésil | LGPD (art. 18, 19) | immédiat ; 15 jours pour une réponse complète | ANPD |
 | 🇺🇸 Californie | CCPA / CPRA | 45 jours | CPPA, guichet DROP |
 | 🌍 Ailleurs | loi locale / opt-out | variable | autorité locale |
 
@@ -242,7 +243,7 @@ Deux situations hors tableau sont traitées à part : les **mineurs** (RGPD art.
     ├── SKILL.md                       ← instructions lues par l'assistant
     ├── references/
     │   ├── droit-applicable.md        ← cadres juridiques, délais, exceptions
-    │   ├── modeles-courriers.md       ← 11 modèles (FR, EN, TR)
+    │   ├── modeles-courriers.md       ← 14 modèles (FR, EN, TR, DE, ES, IT, PT)
     │   └── courtiers.md               ← pages d'opt-out connues (B2B, annuaires, visage, archives, IA)
     └── assets/
         └── suivi-demandes.csv         ← gabarit du tableau de suivi
@@ -250,7 +251,7 @@ Deux situations hors tableau sont traitées à part : les **mineurs** (RGPD art.
 
 ### Les modèles de courriers inclus
 
-1. Demande d'effacement — RGPD (France / UE)
+1. Demande d'effacement — RGPD (France / UE), avec variantes en allemand, espagnol, italien et portugais
 2. Demande d'effacement — UK GDPR
 3. Demande de suppression — CCPA (Californie)
 4. Demande d'effacement — KVKK (en turc)
@@ -261,6 +262,9 @@ Deux situations hors tableau sont traitées à part : les **mineurs** (RGPD art.
 9. Opposition à la prospection commerciale (RGPD art. 21)
 10. Procuration pour agir au nom d'un tiers
 11. Clôture des comptes d'une personne décédée (France, loi Informatique et Libertés art. 85)
+12. Demande d'effacement — LPD (Suisse)
+13. Demande de suppression — Loi 25 (Québec)
+14. Demande d'élimination — LGPD (Brésil, en portugais)
 
 Ce sont des gabarits à adapter, jamais à envoyer tels quels.
 
@@ -306,7 +310,7 @@ La skill applique ces règles avant toute action :
 
 Les contributions sont bienvenues, en particulier :
 
-- 🌍 **nouveaux cadres juridiques** (Brésil/LGPD, Maroc, Australie, autres États américains…) dans `references/droit-applicable.md` ;
+- 🌍 **nouveaux cadres juridiques** (Maroc, Australie, Japon, autres États américains…) dans `references/droit-applicable.md` ;
 - ✉️ **modèles de courriers** dans d'autres langues ;
 - 🔄 **mises à jour** quand un délai, un guichet ou un formulaire change, avec le lien vers la source officielle.
 

@@ -6,11 +6,11 @@
 
 > Shrink the traces you leave online, methodically: inventory, ready-to-send erasure requests, search delisting, data breaches, and follow-up reminders.
 
-This skill turns your AI assistant — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — into a digital clean-up assistant. It starts from what **you** find about yourself online, ranks each trace by sensitivity, drafts the requests that fit your country (GDPR, UK GDPR, CCPA, KVKK) and leaves you with a tracking table of deadlines, reminders and a complaint template.
+This skill turns your AI assistant — **Claude, ChatGPT, Gemini, Hermes, Mistral, Codex…** — into a digital clean-up assistant. It starts from what **you** find about yourself online, ranks each trace by sensitivity, drafts the requests that fit your country (GDPR, UK GDPR, CCPA, KVKK, Swiss FADP, Law 25, LGPD) and leaves you with a tracking table of deadlines, reminders and a complaint template.
 
 **The AI sorts, drafts and tracks. It deletes nothing itself.** You send every request, and the recipient is the one who acts on it.
 
-> ℹ️ The skill itself is written in French (instructions, letter templates, legal notes). Any assistant can work with it in English: ask in English and it answers in English. The letter templates for the UK (UK GDPR) and California (CCPA) are already in English.
+> ℹ️ The skill itself is written in French (instructions, letter templates, legal notes). Any assistant can work with it in English: ask in English and it answers in English. The letter templates for the UK (UK GDPR) and California (CCPA) are already in English, and the GDPR template also comes in German, Spanish, Italian and Portuguese.
 
 ---
 
@@ -224,6 +224,7 @@ A tracking table built from `assets/suivi-demandes.csv`: a computed deadline for
 | 🇨🇭 Switzerland | FADP (Art. 25, 32) | 30 days (access); no deadline for erasure | FDPIC, civil action |
 | 🇨🇦 Quebec | Law 25 (Art. 28, 28.1, 32) | 30 days | Commission d'accès à l'information |
 | 🇨🇦 Canada outside Quebec | PIPEDA | 30 days (access) | Office of the Privacy Commissioner |
+| 🇧🇷 Brazil | LGPD (Art. 18, 19) | immediate; 15 days for a full answer | ANPD |
 | 🇺🇸 California | CCPA / CPRA | 45 days | CPPA, DROP portal |
 | 🌍 Elsewhere | local law / opt-out | varies | local authority |
 
@@ -244,7 +245,7 @@ Two situations outside the table are handled separately: **minors** (GDPR Art. 1
     ├── SKILL.md                       ← instructions the assistant reads
     ├── references/
     │   ├── droit-applicable.md        ← legal frameworks, deadlines, exceptions
-    │   ├── modeles-courriers.md       ← 11 templates (FR, EN, TR)
+    │   ├── modeles-courriers.md       ← 14 templates (FR, EN, TR, DE, ES, IT, PT)
     │   └── courtiers.md               ← known opt-out pages (B2B, directories, face, archives, AI)
     └── assets/
         └── suivi-demandes.csv         ← tracking table template
@@ -252,7 +253,7 @@ Two situations outside the table are handled separately: **minors** (GDPR Art. 1
 
 ### Letter templates included
 
-1. Erasure request — GDPR (France / EU), in French
+1. Erasure request — GDPR (France / EU), in French, with German, Spanish, Italian and Portuguese variants
 2. Erasure request — UK GDPR, in English
 3. Deletion request — CCPA (California), in English
 4. Erasure request — KVKK, in Turkish
@@ -263,6 +264,9 @@ Two situations outside the table are handled separately: **minors** (GDPR Art. 1
 9. Objection to direct marketing (GDPR Art. 21), in French
 10. Power of attorney to act on behalf of a third party, in French
 11. Closure of a deceased person's accounts (France, Data Protection Act Art. 85), in French
+12. Erasure request — Swiss FADP, in French
+13. Deletion request — Quebec Law 25, in French
+14. Deletion request — Brazilian LGPD, in Portuguese
 
 They are templates to adapt, never to send as is.
 
@@ -308,7 +312,7 @@ The skill applies these rules before doing anything:
 
 Contributions are welcome, especially:
 
-- 🌍 **new legal frameworks** (Brazil/LGPD, Morocco, Australia, other US states…) in `references/droit-applicable.md`;
+- 🌍 **new legal frameworks** (Morocco, Australia, Japan, other US states…) in `references/droit-applicable.md`;
 - ✉️ **letter templates** in other languages;
 - 🔄 **updates** when a deadline, portal or form changes, with a link to the official source.
 
